@@ -6,8 +6,8 @@ Note: This project is aimed to improve my semestrial grade in the Cyber subject.
 
 # How it works
  - A client-Server type of network.
- - file reports importing from VirusTotal.com.
-The client is constantly checking for changes in the download directory, specifically for the creating of new files there.
+ - Reports importing from VirusTotal.com.
+The client is constantly checking for changes in the download directory, specifically for the creation of new files there.
 It sends every file that had downloaded to the server, which sends it to VirusTotal.com.
 The server gets the results from the site, and sends it back to the client, which saves them in answers.txt.
 
