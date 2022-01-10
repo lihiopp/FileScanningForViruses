@@ -21,6 +21,7 @@ class Server:
 
         return filename
 
+    
     def send_file(self, apikey, filename):
         '''sends file to virusTotal scan and gets result.'''
         vt.set_apikey(apikey)
@@ -28,6 +29,7 @@ class Server:
         report = vt.get_report(file_name)
         print(report)
         self.client_soc.send(report.encode())
+
         
 def main():
     apikey = 'd833c4df1b028d805148e488937c7159f05e192d7f192dc6f239511e0c14d1ea'
