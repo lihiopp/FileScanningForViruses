@@ -14,5 +14,4 @@ The server gets the results from the site, and sends it back to the client, whic
 # Remarks
 The whole thing happens simultaneously, but in a "first come - first serve" approach; 
 the client is checking for changes in the directory all the time, and sends the files once it notices them.
-The server handles a queue for these files, sends them to VirusTotal.com, gets the answer and sends it back to the client - each file, turn by turn.
-That way no file gets lost in the way.
+The server handles a queue for these files, sends them to VirusTotal.com, gets the answer and sends it back to the client - each file, turn by turn. That way no file gets lost in the way.
