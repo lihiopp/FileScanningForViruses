@@ -11,7 +11,7 @@ The client is constantly checking for changes in the download directory, specifi
 It sends every file that had downloaded to the server, which sends it to VirusTotal.com.
 The server gets the results from the site, and sends it back to the client, which saves them in answers.txt.
 
-# Remakrs
+# Remarks
 The whole thing happens simultaneously, but in a "first come - first serve" approach; 
 the client is checking for changes in the directory all the time, and sends the files once it notices them.
 The server handles a queue for these files, sends them to VirusTotal.com, gets the answer and sends it back to the client - each file, turn by turn.
