@@ -1,5 +1,4 @@
-import win32file
-import win32con, os
+import win32file, win32con
 global path_to_watch
 path_to_watch = r'C:\Users\idd\Downloads'
 
@@ -18,7 +17,6 @@ def create_handle():
     None)
 
   return handle
-
   
 def monitor(handle):
   '''monitors and notifies when there was a change in the directory.'''
