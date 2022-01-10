@@ -21,7 +21,6 @@ class Server:
 
         return filename
 
-    
     def send_file(self, apikey, filename):
         '''sends file to virusTotal scan and gets result.'''
         vt.set_apikey(apikey)
