@@ -1,11 +1,10 @@
 import requests, json, hashlib
-#my apikey is: 'd833c4df1b028d805148e488937c7159f05e192d7f192dc6f239511e0c14d1ea'
-
 global my_apikey
 
 def set_apikey(apikey):
     my_apikey = apikey
 
+    
 def scan_file(file_name):
     '''enters the file into Virustotal's queue.'''
     url = 'https://www.virustotal.com/vtapi/v2/file/scan'
@@ -14,6 +13,7 @@ def scan_file(file_name):
     response = requests.post(url,files=files, params=params)
     print(response['verbose_msg'])
 
+    
 def hash_file(file_name):
     '''hashes the file's data - that's the resource argument needed later.'''
     file = open(file_name, 'rb')
@@ -21,6 +21,7 @@ def hash_file(file_name):
     md5_hash = hashlib.md5(data)
     digest = str(md5_hash.hexdigest())
     return digest
+
 
 def get_report(file_name):
     '''gets the report of the scanned file.'''
