@@ -3,16 +3,13 @@ import socket, subprocess
 class Client:
     def __init__(self,ip,port):
         self.socket = socket.socket()
-        self.path = 'C:\\Users\\idd\\Downloads'
         self.socket.connect((ip,port))
         print("Initialized and connected.")
 
     def handle_file(self):
         '''sends downloaded files to the server and gets scan results.'''
         code = subprocess.run(['python','NotifyChanges.py'],shell=True)
-        print(code)
         filename = subprocess.check_output(['python','NotifyChanges.py'],shell=True)
-        #print(filename.decode())
         self.socket.send(filename)
         with open(filename.decode(),'rb') as f:
             while True:
