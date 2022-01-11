@@ -1,6 +1,6 @@
-import win32file, win32con
+import win32file, win32con, os
 global path_to_watch
-path_to_watch = r'C:\Users\idd\Downloads'
+path_to_watch = r'C:\Users\student\Downloads'
 
 #this function opens the file it catches, therefore interrupting its
 #downloading process. It doesn't close it, making another problem
@@ -10,7 +10,7 @@ def create_handle():
   handle = win32file.CreateFile(
     path_to_watch,
     win32con.GENERIC_READ,
-    win32con.FILE_SHARE_READ,
+    win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE,
     None,
     win32con.OPEN_EXISTING,
     win32con.FILE_FLAG_BACKUP_SEMANTICS,
@@ -25,7 +25,8 @@ def monitor(handle):
       handle,
       1024,
       True,
-      win32con.FILE_NOTIFY_CHANGE_FILE_NAME,
+      win32con.FILE_NOTIFY_CHANGE_FILE_NAME |
+      win32con.FILE_NOTIFY_CHANGE_LAST_WRITE,
       None,
       None)
 
@@ -38,14 +39,15 @@ def monitor(handle):
         f = open(full_filename,'rb')
         f.close()
         print("the file has finished downloading!")
-        return  full_filename
+        return  [full_filename,action]
     except IOError:
       print("could'nt open file, which means it hasn't downloaded yet.")
       pass
 
 def main():
   handle = create_handle()
-  result = monitor(handle)
-  return result
+  while True:
+    result = monitor(handle)
+    print(result[0],result[1])
 
 main()
