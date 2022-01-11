@@ -6,7 +6,7 @@ Note: This project is aimed to improve my semestrial grade in the Cyber subject.
 
 # How it works
  - A client-server type of network.
- - Scanning is done on VirusTotal.com, which provides the result.
+ - Scanning is done on VirusTotal.com, which provides a report.
 
 The client is constantly checking for changes in the download directory, specifically for the creation of new files there.
 It sends every file that had downloaded to the server, which sends it to VirusTotal.com.
