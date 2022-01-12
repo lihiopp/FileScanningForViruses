@@ -35,7 +35,6 @@ class Client:
             f.write(filename + "--->" + report + "\r\n")
             
                 
-
 def main():
     client = Client('127.0.0.1',12345)
     while True:
