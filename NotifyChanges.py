@@ -1,4 +1,4 @@
-import win32file, win32con, os
+import win32file, win32con, os, time
 global path_to_watch
 path_to_watch = r'C:\Users\idd\Downloads'
 
@@ -27,15 +27,19 @@ def monitor(handle):
       None,
       None)
 
+    relevant_notifications=[]
     for action, file in results:
-      full_filename = os.path.join (path_to_watch, file)
-      suffix = full_filename.split('.')[-1]
+      suffix = filename.split('.')[-1]
       if(suffix!="tmp" and suffix!="crdownload"):
-        return full_filename
+        if(file not in relevant_notification):
+          relevant_notifications.append(file)
+      
+    return relevant_notifications
 
 
-def main(return_value):
+def main(return_value):  
   handle = create_handle()
   while True:
     result = monitor(handle)
-    return_value.append(result)
+    return_value+=relevant_notifications
+
