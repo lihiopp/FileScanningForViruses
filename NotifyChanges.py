@@ -29,9 +29,9 @@ def monitor(handle):
 
     relevant_notifications=[]
     for action, file in results:
-      suffix = filename.split('.')[-1]
+      suffix = file.split('.')[-1]
       if(suffix!="tmp" and suffix!="crdownload"):
-        if(file not in relevant_notification):
+        if(file not in relevant_notifications):
           relevant_notifications.append(file)
       
     return relevant_notifications
@@ -41,5 +41,5 @@ def main(return_value):
   handle = create_handle()
   while True:
     result = monitor(handle)
-    return_value+=relevant_notifications
+    return_value+=result
 
