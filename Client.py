@@ -33,6 +33,7 @@ class Client:
         
         with open(r"c:\temp\answer.txt",'w') as f:
             f.write(filename + "--->" + report + "\r\n")
+            print(filename + "--->" + report)
             
                 
 
