@@ -31,10 +31,11 @@ class Client:
                 self.socket.send(data)
         report = self.socket.recv(1024).decode()#
         
-        with open("answer.txt",'w') as f:
+        with open(r"c:\temp\answer.txt",'w') as f:
             f.write(filename + "--->" + report + "\r\n")
             
                 
+
 def main():
     client = Client('127.0.0.1',12345)
     while True:
