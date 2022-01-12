@@ -1,4 +1,4 @@
-import socket, threading
+import socket, time
 import vtScanning as vt
 
 class Server:
@@ -18,12 +18,14 @@ class Server:
                 if not data:
                     break
                 f.write(data)
+        print("Got file: " + filename + " !")
         return filename
 
     def send_file(self, apikey, filename):
         '''sends file to virusTotal scan, gets result and sends it to the client.'''
         vt.set_apikey(apikey)
         vt.scan_file(filename)
+        time.sleep(5)
         report = vt.get_report(file_name)
         self.client_soc.send(report.encode())
 
