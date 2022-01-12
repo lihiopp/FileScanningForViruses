@@ -36,7 +36,7 @@ def monitor(handle):
       
     return relevant_notifications
 
-
+  
 def main(return_value):  
   handle = create_handle()
   while True:
