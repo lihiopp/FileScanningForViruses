@@ -24,7 +24,7 @@ The server gets the results from the site, and sends it back to the client, whic
 # Remarks
 The whole thing happens simultaneously, but also in a FIFO approach - it is both synchronous and Asynchronous;
 the client is checking for changes in the directory all the time, handles a queue of the downloaded files and keeps sending them one by one.
-The server sends them to VirusTotal.com, gets the answer and sends it back to the client - only after the result for one is received, it sends another. That way no file gets lost in the way. Also, installing the pywin package is needed.
+The server sends them to VirusTotal.com, gets the answer and sends it back to the client - only after the result for a file is received, the client sends another. That way no file gets lost on the way. Also, installing the pywin package is needed.
 
 ![image](https://user-images.githubusercontent.com/93098326/149233964-c55d83eb-6e7f-41a2-aa13-5a2b8e7469e4.png)
 
