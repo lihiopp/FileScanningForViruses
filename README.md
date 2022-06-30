@@ -2,6 +2,12 @@
 Scans downloaded files for viruses by using VirusTotal.com 's API.
 ____________________________________________________________________
 
+## Setup
+Please clone this projcet: ```git clone https://github.com/lihiopp/FileScanningForViruses```
+
+Register to [VirusTotal.com](VirusTotal.com). By doing so, you will get an API key.
+Add that API key to the __Server.py__ code.
+
 ## Implementation
  - A client-server type of network (TCP connection).
  - Scanning is done on VirusTotal.com, which provides a report.
